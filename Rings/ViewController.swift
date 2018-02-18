@@ -15,6 +15,7 @@ class ViewController: UIViewController, CNContactPickerDelegate, UICollectionVie
   @IBOutlet weak var imageView: UIImageView!
   @IBOutlet weak var collectionView: UICollectionView!
   @IBOutlet weak var saveButton: UIButton!
+  @IBOutlet weak var tapHereLabel: UILabel!
   
   var colors: [Color]?
   var selectedContact: CNContact?
@@ -26,8 +27,14 @@ class ViewController: UIViewController, CNContactPickerDelegate, UICollectionVie
     self.loadColors()
     self.collectionView.dataSource = self
     self.collectionView.delegate = self
+    self.collectionView.alpha = 0.3
+    self.saveButton.alpha = 0.3
     let selectImageTapRecogniser = UITapGestureRecognizer(target: self, action: #selector(self.selectImage))
     self.imageView.addGestureRecognizer(selectImageTapRecogniser)
+  }
+  
+  override func viewDidLayoutSubviews() {
+    self.imageView.layer.cornerRadius = self.imageView.frame.size.width / 2
   }
 
   override func didReceiveMemoryWarning() {
@@ -93,7 +100,10 @@ class ViewController: UIViewController, CNContactPickerDelegate, UICollectionVie
     let image = UIImage(data: contact.thumbnailImageData!)
     self.selectedContact = contact
     self.imageView.image = image!.rounded()
+    self.tapHereLabel.removeFromSuperview()
+    self.collectionView.alpha = 1.0
     self.saveButton.isEnabled = true
+    self.saveButton.alpha = 1.0
   }
   // MARK: Collection View Data Source
 
@@ -114,7 +124,7 @@ class ViewController: UIViewController, CNContactPickerDelegate, UICollectionVie
   // MARK: Collection View Delegate
   
   func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-    return CGSize(width: collectionView.frame.size.width / 5 , height: collectionView.frame.size.width / 5)
+    return CGSize(width: collectionView.frame.size.width / 5 , height: collectionView.frame.size.height / 4)
   }
   
   func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {

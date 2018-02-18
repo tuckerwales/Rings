@@ -6,6 +6,8 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -18,32 +20,66 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FDv-mt-PzH">
-                                <rect key="frame" x="77" y="70" width="220" height="220"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hl3-gz-Hk0">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="400"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FDv-mt-PzH">
+                                        <rect key="frame" x="46.5" y="50" width="281" height="300"/>
+                                        <subviews>
+                                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GvI-wp-rav">
+                                                <rect key="frame" x="0.0" y="255" width="281" height="45"/>
+                                                <color key="backgroundColor" red="0.0" green="0.67706972360610962" blue="0.49910867214202881" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <state key="normal" title="Save Contact Image">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                        <integer key="value" value="4"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="saveContact" destination="BYZ-38-t0r" eventType="touchUpInside" id="XRb-Tb-Zul"/>
+                                                </connections>
+                                            </button>
+                                            <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="IMt-t0-lqB">
+                                                <rect key="frame" x="28" y="0.0" width="225" height="225"/>
+                                                <color key="backgroundColor" red="0.14828547835350037" green="0.14843112230300903" blue="0.14830806851387024" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap here to select a contact" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rBE-9p-8TW">
+                                                <rect key="frame" x="56" y="0.0" width="169" height="225"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="bottom" secondItem="GvI-wp-rav" secondAttribute="bottom" id="0Ac-Np-NjP"/>
+                                            <constraint firstItem="GvI-wp-rav" firstAttribute="leading" secondItem="FDv-mt-PzH" secondAttribute="leading" id="5Z0-GO-0Bs"/>
+                                            <constraint firstItem="IMt-t0-lqB" firstAttribute="centerX" secondItem="FDv-mt-PzH" secondAttribute="centerX" id="5zi-JT-sl2"/>
+                                            <constraint firstItem="rBE-9p-8TW" firstAttribute="top" secondItem="FDv-mt-PzH" secondAttribute="top" id="AsS-Nc-Lzg"/>
+                                            <constraint firstItem="IMt-t0-lqB" firstAttribute="top" secondItem="FDv-mt-PzH" secondAttribute="top" id="Hls-m0-qBt"/>
+                                            <constraint firstItem="IMt-t0-lqB" firstAttribute="height" secondItem="FDv-mt-PzH" secondAttribute="height" multiplier="0.75" id="IZ6-8u-faQ"/>
+                                            <constraint firstItem="rBE-9p-8TW" firstAttribute="centerX" secondItem="FDv-mt-PzH" secondAttribute="centerX" id="Wcf-17-aKq"/>
+                                            <constraint firstItem="rBE-9p-8TW" firstAttribute="height" secondItem="IMt-t0-lqB" secondAttribute="height" id="XNE-Ix-CVH"/>
+                                            <constraint firstItem="GvI-wp-rav" firstAttribute="height" secondItem="FDv-mt-PzH" secondAttribute="height" multiplier="0.15" id="bWM-ZN-FY3"/>
+                                            <constraint firstAttribute="trailing" secondItem="GvI-wp-rav" secondAttribute="trailing" id="jRA-TE-ONG"/>
+                                            <constraint firstItem="rBE-9p-8TW" firstAttribute="width" secondItem="IMt-t0-lqB" secondAttribute="width" multiplier="0.75" id="oE8-vX-MG8"/>
+                                            <constraint firstItem="GvI-wp-rav" firstAttribute="width" secondItem="FDv-mt-PzH" secondAttribute="width" id="oeY-hp-NHN"/>
+                                            <constraint firstItem="IMt-t0-lqB" firstAttribute="width" secondItem="FDv-mt-PzH" secondAttribute="height" multiplier="0.75" id="qNy-x1-taI"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                        <integer key="value" value="110"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </view>
-                            <imageView clipsSubviews="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="IMt-t0-lqB">
-                                <rect key="frame" x="87" y="80" width="200" height="200"/>
-                                <color key="backgroundColor" red="0.14828547835350037" green="0.14843112230300903" blue="0.14830806851387024" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="200" id="hmf-zr-HM6"/>
-                                    <constraint firstAttribute="width" constant="200" id="yKm-f5-48i"/>
+                                    <constraint firstItem="FDv-mt-PzH" firstAttribute="height" secondItem="hl3-gz-Hk0" secondAttribute="height" multiplier="0.75" id="QNt-x3-AHT"/>
+                                    <constraint firstItem="FDv-mt-PzH" firstAttribute="centerY" secondItem="hl3-gz-Hk0" secondAttribute="centerY" id="VHV-wn-jBb"/>
+                                    <constraint firstItem="FDv-mt-PzH" firstAttribute="width" secondItem="hl3-gz-Hk0" secondAttribute="width" multiplier="0.75" id="YdN-CZ-qc7"/>
+                                    <constraint firstItem="FDv-mt-PzH" firstAttribute="centerX" secondItem="hl3-gz-Hk0" secondAttribute="centerX" id="g9y-od-I3m"/>
                                 </constraints>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                        <integer key="value" value="100"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </imageView>
+                            </view>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="2Yy-bk-g5x">
-                                <rect key="frame" x="0.0" y="360" width="375" height="307"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <rect key="frame" x="0.0" y="400" width="375" height="267"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="IfG-KO-0b7">
                                     <size key="itemSize" width="50" height="50"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -61,36 +97,17 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
-                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GvI-wp-rav">
-                                <rect key="frame" x="87" y="305" width="200" height="30"/>
-                                <color key="backgroundColor" red="0.0" green="0.67706972360610962" blue="0.49910867214202881" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="200" id="QHm-QT-u0Y"/>
-                                    <constraint firstAttribute="height" constant="30" id="e0Q-6L-B1t"/>
-                                </constraints>
-                                <state key="normal" title="Save Contact Image">
-                                    <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                        <integer key="value" value="4"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <action selector="saveContact" destination="BYZ-38-t0r" eventType="touchUpInside" id="XRb-Tb-Zul"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="IMt-t0-lqB" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="0R5-ns-nCt"/>
-                            <constraint firstItem="2Yy-bk-g5x" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="1ql-gp-Wq1"/>
-                            <constraint firstItem="GvI-wp-rav" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="D4q-P6-sZf"/>
-                            <constraint firstItem="IMt-t0-lqB" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="60" id="G57-OA-YtJ"/>
-                            <constraint firstItem="2Yy-bk-g5x" firstAttribute="top" secondItem="GvI-wp-rav" secondAttribute="bottom" constant="25" id="V7z-LE-bac"/>
-                            <constraint firstItem="2Yy-bk-g5x" firstAttribute="top" secondItem="IMt-t0-lqB" secondAttribute="bottom" constant="80" id="ffJ-ZD-J8S"/>
-                            <constraint firstItem="2Yy-bk-g5x" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="lJk-R8-XZd"/>
-                            <constraint firstItem="2Yy-bk-g5x" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="lb8-2i-QPg"/>
+                            <constraint firstItem="hl3-gz-Hk0" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="AM1-H7-cUP"/>
+                            <constraint firstItem="hl3-gz-Hk0" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="HUc-BM-EOi"/>
+                            <constraint firstItem="hl3-gz-Hk0" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.6" id="M2V-zP-Z1N"/>
+                            <constraint firstItem="2Yy-bk-g5x" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="M4x-B8-THR"/>
+                            <constraint firstItem="hl3-gz-Hk0" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="-20" id="cvo-OP-paC"/>
+                            <constraint firstItem="2Yy-bk-g5x" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="dHO-yx-0B7"/>
+                            <constraint firstItem="2Yy-bk-g5x" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="jdH-49-ue1"/>
+                            <constraint firstItem="2Yy-bk-g5x" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.4" id="t01-yh-6hB"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -98,6 +115,7 @@
                         <outlet property="collectionView" destination="2Yy-bk-g5x" id="YnO-dj-hzt"/>
                         <outlet property="imageView" destination="IMt-t0-lqB" id="9sg-mw-bcd"/>
                         <outlet property="saveButton" destination="GvI-wp-rav" id="Rjb-bl-T4k"/>
+                        <outlet property="tapHereLabel" destination="rBE-9p-8TW" id="XmJ-9R-ERu"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
