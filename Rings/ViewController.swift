@@ -100,7 +100,10 @@ class ViewController: UIViewController, CNContactPickerDelegate, UICollectionVie
     let image = UIImage(data: contact.thumbnailImageData!)
     self.selectedContact = contact
     self.imageView.image = image!.rounded()
-    self.tapHereLabel.removeFromSuperview()
+    if (self.tapHereLabel != nil) {
+      self.tapHereLabel.removeFromSuperview()
+      self.tapHereLabel = nil
+    }
     self.collectionView.alpha = 1.0
     self.saveButton.isEnabled = true
     self.saveButton.alpha = 1.0
